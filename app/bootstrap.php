@@ -11,18 +11,19 @@
 use Symfony\Component\Debug\ErrorHandler;
 use Symfony\Component\Debug\ExceptionHandler;
 
-
 use Dflydev\Provider\DoctrineOrm\DoctrineOrmServiceProvider;
 
+use Silex\Provider\FormServiceProvider;
 
 // Register global error and exception handlers
 ErrorHandler::register();
 ExceptionHandler::register();
 
 // Register service providers.
+$app->register(new FormServiceProvider());
 $app->register(new Silex\Provider\TwigServiceProvider(), array(
     'twig.path' => __DIR__.'/../views',
-    'twig.form.templates' =>  __DIR__.'/../views'
+    'twig.form.templates' => array('form_div_layout.html.twig', 'common/form_div_layout.html.twig')
 ));
 $app->register(new Silex\Provider\DoctrineServiceProvider());
 $app->register(new DoctrineOrmServiceProvider, array(
@@ -39,8 +40,15 @@ $app->register(new DoctrineOrmServiceProvider, array(
         ),
     ),
 ));
+$app->register(new Silex\Provider\SessionServiceProvider());
 
-$app->register(new \Silex\Provider\FormServiceProvider());
+$app->register(new Silex\Provider\TranslationServiceProvider(), array(
+    'translator.domains' => array(),
+));
+$app->register(new Silex\Provider\LocaleServiceProvider());
+$app->register(new Silex\Provider\TranslationServiceProvider());
+$app->register(new Silex\Provider\ValidatorServiceProvider());
+
 // rajoute la méthode asset dans twig
 $app->register(new Silex\Provider\AssetServiceProvider(), array(
     'assets.named_packages' => array(

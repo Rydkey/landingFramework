@@ -33,7 +33,5 @@ $app->match($dir.'/', function (Request $request) use ($app) {
         }
     }
     $formView=$form->createView();
-    return $app['twig']->render('index.html.twig', array(
-        'form' => $formView)
-    );
+    return $app['twig']->render('index.html.twig',array('form'=>$formView));
 })->bind('home');

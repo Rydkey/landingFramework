@@ -2,6 +2,7 @@
 {#mettre le contenue de la page dans les balises block#}
 {% block content %}
     {{ form_start(form) }}
-    {{ form_widget(form) }}
+        {{ form_widget(form) }}
     {{ form_end(form) }}
+    {#{{ dump(form) }}#}
 {% endblock %}

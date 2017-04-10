@@ -23,7 +23,6 @@ ExceptionHandler::register();
 $app->register(new FormServiceProvider());
 $app->register(new Silex\Provider\TwigServiceProvider(), array(
     'twig.path' => __DIR__.'/../views',
-    'twig.form.templates' => array('form_div_layout.html.twig', 'common/form_div_layout.html.twig')
 ));
 $app->register(new Silex\Provider\DoctrineServiceProvider());
 $app->register(new DoctrineOrmServiceProvider, array(
@@ -33,13 +32,21 @@ $app->register(new DoctrineOrmServiceProvider, array(
             // Using actual filesystem paths
             array(
                 'type' => 'annotation',
-                'namespace' => 'Foo\Entity',
+                'namespace' => 'landingBundle\Entity',
                 'path' => __DIR__ . '/../src/Entity',
             )
 
         ),
     ),
 ));
+
+$app->register(new Silex\Provider\SwiftmailerServiceProvider());
+
+$app->register(new Silex\Provider\TranslationServiceProvider(), array(
+    'translator.domains' => array(),
+));
+
+
 $app->register(new Silex\Provider\SessionServiceProvider());
 
 $app->register(new Silex\Provider\TranslationServiceProvider(), array(

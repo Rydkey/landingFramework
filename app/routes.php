@@ -10,11 +10,10 @@
 
 use landingBundle\Entity\Landing;
 use landingBundle\Form\Type\landingType;
-use Symfony\Component\Form\Extension\Core\Type\FormType;
-use Symfony\Component\Form\FormError;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Validator\Constraints as Assert;
+//use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+//use Symfony\Component\Form\Extension\Core\Type\FormType;
+//use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 $dir='/public/landingFramework';
 
@@ -22,16 +21,24 @@ $dir='/public/landingFramework';
 $app->match($dir.'/', function (Request $request) use ($app) {
     $em = $app['orm.em'];
     $entity = new Landing();
-    $form= $app['form.factory']->create(landingType::class, $entity);
+    $formBuilder= $app['form.factory']->createBuilder(landingType::class,$entity);
+    $form=$formBuilder->getForm();
     $form->handleRequest($request);
     if($form->isSubmitted()){
         if($form->isValid()){
-            $app['session']->getFlasbag()->add('success','Validée');
+            $message = \Swift_Message::newInstance()
+                ->setSubject('[Landing] Feedback')
+                ->setFrom(array('noreply@landing.com'))
+                ->setTo(array('r.risser@maetvaplanet.com'))
+                ->setBody($request->get('message'));
+
+            $app['mailer']->send($message);
+            $em->persist($entity);
+            $em->flush($entity);
+            $app['session']->getFlashbag()->add('notice','Validée');
         }else{
-            $form->addError(new FormError('Il y à une erreur dans le formulaire'));
-            $app['session']->getFlashBag()->add('info','Le formulaire comporte des erreurs');
+            $app['session']->getFlashBag()->add('notice','Le formulaire comporte des erreurs');
         }
     }
-    $formView=$form->createView();
-    return $app['twig']->render('index.html.twig',array('form'=>$formView));
+    return $app['twig']->render('index.html.twig',array('form'=>$form->createView()));
 })->bind('home');

@@ -9,6 +9,14 @@
 
 namespace landingBundle\Entity;
 
+//sudo php vendor/bin/doctrine orm:generate:entities --filter=Entity src/landingBundle/
+//met à jour l'objet ci-dessous
+
+//sudo php vendor/bin/doctrine orm:schema-tool:create --dump-sql
+//affiche la requête de création de la BDD (enlever --dump-sql pour effectué la création)
+
+//sudo php vendor/bin/doctrine orm:schema-tool:update --dump-sql
+//affiche la requête de MaJ de la BDD (enlever --dump-sql pour effectué le changement)
 
 /**
  * Form
@@ -75,8 +83,7 @@ class Landing
     protected $entreprise;
 
     /**
-     * @Column(type="boolean", nullable=false)
-     *
+     * @Column(type="boolean", nullable=true)
      */
     protected $opt_in;
 

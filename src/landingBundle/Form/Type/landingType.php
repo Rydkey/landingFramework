@@ -38,14 +38,14 @@ class landingType extends AbstractType
                 'attr'        =>array('placeholder' => 'email'),
                 'label'        =>'Email : '
             ))
-            ->add('nom',TextType::class,array('attr'=> array('placeholder'=>'Nom')))
-            ->add('prenom',TextType::class,array('attr'=> array('placeholder'=>'Prenom')))
-            ->add('numeroAdresse',NumberType::class,array('attr'=> array('placeholder'=>'Numéro de rue')))
-            ->add('voieAdresse',TextType::class,array('attr'=> array('placeholder'=>'Voie')))
-            ->add('ville',TextType::class,array('attr'=> array('placeholder'=>'Ville')))
-            ->add('codePostal',NumberType::class,array('attr'=> array('placeholder'=>'Code Postal')))
-            ->add('entreprise',TextType::class,array('attr'=> array('placeholder'=>'Entreprise')))
-            ->add('opt_in',CheckboxType::class)
+            ->add('nom',TextType::class,array('attr'=> array('placeholder'=>'Nom','label'=> 'Nom :')))
+            ->add('prenom',TextType::class,array('attr'=> array('placeholder'=>'Prenom'),'label'=> 'Prénom :'))
+            ->add('numeroAdresse',NumberType::class,array('attr'=> array('placeholder'=>'Numéro de rue'),'label'=> 'Numéro de voie :'))
+            ->add('voieAdresse',TextType::class,array('attr'=> array('placeholder'=>'nom de la voie'),'label'=> 'Nom de la voie :'))
+            ->add('codePostal',NumberType::class,array('attr'=> array('placeholder'=>'Code Postal'),'label'=> 'Code Postale :'))
+            ->add('ville',TextType::class,array('attr'=> array('placeholder'=>'Ville'),'label'=> 'Ville :'))
+            ->add('entreprise',TextType::class,array('attr'=> array('placeholder'=>'Entreprise'),'label'=> 'Entreprise :'))
+            ->add('opt_in',CheckboxType::class,array('required'=>false))
             ->getForm()
         ;
     }

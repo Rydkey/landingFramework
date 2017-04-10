@@ -9,7 +9,7 @@
 require __DIR__.'/vendor/autoload.php';
 require __DIR__.'/app/config/dev.php';
 $newDefaultAnnotationDrivers = array(
-    __DIR__ . "/src/Entity",
+    __DIR__ . "/src/landingBundle/Entity",
 );
 $config = new \Doctrine\ORM\Configuration();
 $config->setMetadataCacheImpl(new \Doctrine\Common\Cache\ArrayCache());

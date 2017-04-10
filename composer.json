@@ -3,7 +3,7 @@
         "silex/silex": "~2.0",
         "doctrine/dbal": "~2.5",
         "twig/twig": "~2.0",
-        "symfony/twig-bridge": "~2.8|3.0.*",
+        "symfony/twig-bridge": "^3.2",
         "symfony/asset": "~2.8|3.0.*",
         "symfony/form": "^3.2",
         "symfony/config": "^3.2",
@@ -13,7 +13,8 @@
         "symfony/filesystem": "^3.2",
         "symfony/process": "^3.2",
         "symfony/yaml": "^3.2",
-        "dflydev/doctrine-orm-service-provider": "^2.0"
+        "dflydev/doctrine-orm-service-provider": "^2.0",
+        "swiftmailer/swiftmailer": "^5.4"
     },
     "autoload": {
         "psr-0": {

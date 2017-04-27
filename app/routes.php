@@ -16,27 +16,7 @@ $dir='/public/landingFramework';
 
 // Home page
 $app->match($dir.'/', function (Request $request) use ($app) {
-    $em = $app['orm.em'];
-    $entity = new Landing();
-    $formBuilder= $app['form.factory']->createBuilder(landingType::class,$entity);
-    $form=$formBuilder->getForm();
-    $form->handleRequest($request);
-    if($form->isSubmitted()){
-        if($form->isValid()){
-//            $message = \Swift_Message::newInstance()
-//                ->setSubject('[Landing] Feedback')
-//                ->setFrom(array('noreply@landing.com'))
-//                ->setTo(array($form['mail']->getData()))
-//                ->setBody('Test');
-//            $app['mailer']->send($message);
-            $em->persist();
-            $em->flush($entity);
-            $app['session']->getFlashbag()->add('notice', 'Merci, un mail viens d\'ếtre envoyer à l\'adresse mail suivante : '.$form['mail']->getData());
-        }else{
-            $app['session']->getFlashBag()->add('notice','Le formulaire comporte des erreurs');
-        }
-    }
-    return $app['twig']->render('index.html.twig',array('form'=>$form->createView()));
+  return indexController($request,$app);
 })->bind('home');
 
 // Admin page

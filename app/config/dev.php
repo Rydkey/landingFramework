@@ -15,7 +15,7 @@ $app['debug'] = true;
 //définitions des champs
 
 $f=[
-  'mail', 'nom','prenom','numeroAdresse','voieAdresse','codePostal','ville','entreprise','opt_in'
+  'mail','nom','prenom','numeroAdresse','voieAdresse','codePostal','ville','entreprise','opt_in'
 ];
 
 //permet de récupéré l'URL de base de l'appliquation, ne pas toucher

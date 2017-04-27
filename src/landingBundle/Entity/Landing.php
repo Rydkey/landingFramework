@@ -20,7 +20,6 @@ namespace landingBundle\Entity;
 
 /**
  * Form
- *
  * @Table(name="user")
  * @Entity()
  */
@@ -35,49 +34,49 @@ class Landing
     protected $id;
 
     /**
-     * @Column(type="string", nullable=false)
+     * @Column(type="string", nullable=true)
      *
      */
     protected $nom;
 
     /**
-     * @Column(type="string", nullable=false)
+     * @Column(type="string", nullable=true)
      *
      */
     protected $prenom;
 
     /**
-     * @Column(type="string", nullable=false)
+     * @Column(type="string", nullable=true)
      *
      */
     protected $mail;
 
     /**
-     * @Column(type="integer", nullable=false)
+     * @Column(type="integer", nullable=true)
      *
      */
     protected $numeroAdresse;
 
     /**
-     * @Column(type="string", nullable=false)
+     * @Column(type="string", nullable=true)
      *
      */
     protected $voieAdresse;
 
     /**
-     * @Column(type="string", nullable=false)
+     * @Column(type="string", nullable=true)
      *
      */
     protected $ville;
 
     /**
-     * @Column(type="integer", nullable=false)
+     * @Column(type="integer", nullable=true)
      *
      */
     protected $codePostal;
 
     /**
-     * @Column(type="string", nullable=false)
+     * @Column(type="string", nullable=true)
      *
      */
     protected $entreprise;
@@ -88,7 +87,7 @@ class Landing
     protected $opt_in;
 
     /**
-     * @Column(type="date", nullable=false)
+     * @Column(type="date", nullable=true)
      *
      */
     protected $date_enregistrement;

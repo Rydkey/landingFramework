@@ -39,14 +39,18 @@ $app->register(new DoctrineOrmServiceProvider, array(
         ),
     ),
 ));
-
 $app->register(new Silex\Provider\SwiftmailerServiceProvider());
-
+$app['swiftmailer.options'] = array(
+    'host' => 'smtp.googlemail.com',
+    'port' => '465',
+    'username' => 'rydkeyproduction@gmail.com',
+    'password' => 'azerty90',
+    'encryption' => 'ssl',
+    'auth_mode' => 'login'
+);
 $app->register(new Silex\Provider\TranslationServiceProvider(), array(
     'translator.domains' => array(),
 ));
-
-
 $app->register(new Silex\Provider\SessionServiceProvider());
 
 $app->register(new Silex\Provider\TranslationServiceProvider(), array(
@@ -55,7 +59,6 @@ $app->register(new Silex\Provider\TranslationServiceProvider(), array(
 $app->register(new Silex\Provider\LocaleServiceProvider());
 $app->register(new Silex\Provider\TranslationServiceProvider());
 $app->register(new Silex\Provider\ValidatorServiceProvider());
-
 // rajoute la méthode asset dans twig
 $app->register(new Silex\Provider\AssetServiceProvider(), array(
     'assets.named_packages' => array(

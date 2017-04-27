@@ -17,15 +17,6 @@ $app['db.options'] = array(
     'password' => 'remy9097*', //mot de passe
 );
 
-$app['swiftmailer.options'] = array(
-    'host' => 'smtp.googlemail.com',
-    'port' => '465',
-    'username' => 'rydkeyproduction@gmail.com',
-    'password' => 'azerty90',
-    'encryption' => null,
-    'auth_mode' => null
-);
-
 $app['orm.proxies_dir'] = __DIR__.'/../cache/doctrine/proxies';
 $app['orm.default_cache'] = 'array';
 $app['orm.em.options'] = array(

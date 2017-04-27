@@ -13,16 +13,10 @@ namespace landingBundle\Form\Type;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
-use Symfony\Component\Form\Extension\Core\Type\FormType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
-use Symfony\Component\Form\Extension\Core\Type\TextareaType;
-use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Form\FormEvent;
-use Symfony\Component\Form\FormEvents;
-use Symfony\Component\Form\FormError;
 
 
 class landingType extends AbstractType
@@ -38,10 +32,10 @@ class landingType extends AbstractType
                 'attr'        =>array('placeholder' => 'email'),
                 'label'        =>'Email : '
             ))
-            ->add('nom',TextType::class,array('attr'=> array('placeholder'=>'Nom','label'=> 'Nom :')))
-            ->add('prenom',TextType::class,array('attr'=> array('placeholder'=>'Prenom'),'label'=> 'Prénom :'))
+            ->add('nom',TextType::class,array('attr'=> array('placeholder'=>'Nom'),'label'=> 'Nom :'))
+            ->add('prenom',TextType::class,array('attr'=> array('placeholder'=>'Prénom'),'label'=> 'Prénom :'))
             ->add('numeroAdresse',NumberType::class,array('attr'=> array('placeholder'=>'Numéro de rue'),'label'=> 'Numéro de voie :'))
-            ->add('voieAdresse',TextType::class,array('attr'=> array('placeholder'=>'nom de la voie'),'label'=> 'Nom de la voie :'))
+            ->add('voieAdresse',TextType::class,array('attr'=> array('placeholder'=>'Nom de la voie'),'label'=> 'Nom de la voie :'))
             ->add('codePostal',NumberType::class,array('attr'=> array('placeholder'=>'Code Postal'),'label'=> 'Code Postale :'))
             ->add('ville',TextType::class,array('attr'=> array('placeholder'=>'Ville'),'label'=> 'Ville :'))
             ->add('entreprise',TextType::class,array('attr'=> array('placeholder'=>'Entreprise'),'label'=> 'Entreprise :'))

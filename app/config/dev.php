@@ -13,23 +13,12 @@ require __DIR__.'/prod.php';
 $app['debug'] = true;
 
 //définitions des champs
-$field=[
-  'mail'=>true,
-  'nom'=>true,
-  'prenom'=>true,
-  'numeroAdresse'=>true,
-  'voieAdresse'=>true,
-  'codePostal'=>true,
-  'ville'=>true,
-  'entreprise'=>true,
-  'opt_in'=>true,
-];
 
 $f=[
   'mail', 'nom','prenom','numeroAdresse','voieAdresse','codePostal','ville','entreprise','opt_in'
 ];
 
-
 //permet de récupéré l'URL de base de l'appliquation, ne pas toucher
 define('BASE_URL', explode('app.php', $_SERVER['SCRIPT_NAME'])[0]);
+
 define('FIELD',$f);

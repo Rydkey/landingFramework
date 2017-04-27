@@ -6,11 +6,10 @@
             <button type = "button" class = "close" data-dismiss = "alert" aria-hidden = "true">
                 &times;
             </button>
-            {{ message }}
-        </div>
+{{ message }}        </div>
     {% endfor %}
     {% for message in app.session.getFlashBag.get('error') %}
-        <div class = "alert alert alert-dismissable">
+        <div class = "alert alert-danger alert-dismissable">
             <button type = "button" class = "close" data-dismiss = "alert" aria-hidden = "true">
                 &times;
             </button>
@@ -24,4 +23,7 @@
     {{ form_widget(form) }}
         <input type="submit" name="submit" class="btn btn-lg btn-success"/>
     {{ form_end(form) }}
+
+    <a href="{{ path('home') }}">retour au formulaire</a>
+
 {% endblock %}

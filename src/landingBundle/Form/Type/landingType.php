@@ -27,21 +27,38 @@ class landingType extends AbstractType
 
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder
-            ->add('mail',EmailType::class,array(
-                'attr'        =>array('placeholder' => 'email'),
-                'label'        =>'Email : '
-            ))
-            ->add('nom',TextType::class,array('attr'=> array('placeholder'=>'Nom'),'label'=> 'Nom :'))
-            ->add('prenom',TextType::class,array('attr'=> array('placeholder'=>'Prénom'),'label'=> 'Prénom :'))
-            ->add('numeroAdresse',NumberType::class,array('attr'=> array('placeholder'=>'Numéro de rue'),'label'=> 'Numéro de voie :'))
-            ->add('voieAdresse',TextType::class,array('attr'=> array('placeholder'=>'Nom de la voie'),'label'=> 'Nom de la voie :'))
-            ->add('codePostal',NumberType::class,array('attr'=> array('placeholder'=>'Code Postal'),'label'=> 'Code Postale :'))
-            ->add('ville',TextType::class,array('attr'=> array('placeholder'=>'Ville'),'label'=> 'Ville :'))
-            ->add('entreprise',TextType::class,array('attr'=> array('placeholder'=>'Entreprise'),'label'=> 'Entreprise :'))
-            ->add('opt_in',CheckboxType::class,array('required'=>false))
-            ->getForm()
-        ;
+      global $app;
+      $sql='SELECT * FROM admin WHERE id=1';
+      $post=$app['db']->fetchAssoc($sql);
+      if($post['opt_mail']){
+        $builder->add('mail',EmailType::class,array('attr'=>array('placeholder' => 'email'), 'label'=>'Email : '));
+      }
+      if($post['opt_nom']){
+        $builder->add('nom',TextType::class,array('attr'=> array('placeholder'=>'Nom'),'label'=> 'Nom :'));
+      }
+      if ($post['opt_prenom']){
+        $builder->add('prenom',TextType::class,array('attr'=> array('placeholder'=>'Prénom'),'label'=> 'Prénom :'));
+      }
+      if($post['opt_numeroAdresse']){
+        $builder->add('numeroAdresse',NumberType::class,array('attr'=> array('placeholder'=>'Numéro de rue'),'label'=> 'Numéro de voie :'));
+      }
+      if($post['opt_voieAdresse']){
+        $builder->add('voieAdresse',TextType::class,array('attr'=> array('placeholder'=>'Nom de la voie'),'label'=> 'Nom de la voie :'));
+      }
+      if ($post['opt_codePostal']){
+        $builder->add('codePostal',NumberType::class,array('attr'=> array('placeholder'=>'Code Postal'),'label'=> 'Code Postale :'));
+      }
+      if ($post['opt_ville']){
+        $builder->add('ville',TextType::class,array('attr'=> array('placeholder'=>'Ville'),'label'=> 'Ville :'));
+      }
+      if ($post['opt_entreprise']){
+        $builder->add('entreprise',TextType::class,array('attr'=> array('placeholder'=>'Entreprise'),'label'=> 'Entreprise :'));
+      }
+      if ($post['opt_opt_in']){
+        $builder->add('opt_in',CheckboxType::class,array('required'=>false));
+      }
+        $builder->getForm()
+      ;
     }
 
     public function setDefaultOptions(OptionsResolver $resolver){

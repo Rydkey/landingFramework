@@ -5,11 +5,10 @@
  * Date: 06/04/17
  * Time: 14:44
  */
-
 // Ce fichier permet d'indiquer les routes de l'application.
 
+include('Controller.php');
 use landingBundle\Entity\Landing;
-use landingBundle\Form\Type\adminType;
 use landingBundle\Form\Type\landingType;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -24,13 +23,13 @@ $app->match($dir.'/', function (Request $request) use ($app) {
     $form->handleRequest($request);
     if($form->isSubmitted()){
         if($form->isValid()){
-            $message = \Swift_Message::newInstance()
-                ->setSubject('[Landing] Feedback')
-                ->setFrom(array('noreply@landing.com'))
-                ->setTo(array($form['mail']->getData()))
-                ->setBody('Test');
-            $app['mailer']->send($message);
-            $em->persist($entity);
+//            $message = \Swift_Message::newInstance()
+//                ->setSubject('[Landing] Feedback')
+//                ->setFrom(array('noreply@landing.com'))
+//                ->setTo(array($form['mail']->getData()))
+//                ->setBody('Test');
+//            $app['mailer']->send($message);
+            $em->persist();
             $em->flush($entity);
             $app['session']->getFlashbag()->add('notice', 'Merci, un mail viens d\'ếtre envoyer à l\'adresse mail suivante : '.$form['mail']->getData());
         }else{
@@ -42,15 +41,5 @@ $app->match($dir.'/', function (Request $request) use ($app) {
 
 // Admin page
 $app->match($dir.'/admin', function (Request $request) use ($app) {
-  $formBuilder= $app['form.factory']->createBuilder(adminType::class);
-  $form=$formBuilder->getForm();
-  $form->handleRequest($request);
-  if($form->isSubmitted()){
-    if($form->isValid()){
-      $app['session']->getFlashbag()->add('notice', $form['opt_mail']->getData());
-    }else{
-      $app['session']->getFlashBag()->add('error','Le formulaire comporte des erreurs');
-    }
-  }
-  return $app['twig']->render('admin/admin.html.twig',['DUMP'=>FIELD,'form'=>$form->createView()]);
+  return adminController($request,$app);
 })->bind('admin');

@@ -41,14 +41,18 @@ function indexController(Symfony\Component\HttpFoundation\Request $request, Sile
   $form->handleRequest($request);
   if($form->isSubmitted()){
     if($form->isValid()){
-      //            $message = \Swift_Message::newInstance()
-      //                ->setSubject('[Landing] Feedback')
-      //                ->setFrom(array('noreply@landing.com'))
-      //                ->setTo(array($form['mail']->getData()))
-      //                ->setBody('Test');
-      //            $app['mailer']->send($message);
-      $em->persist($entity);
-      $em->flush($entity);
+      if (CONFIG['mail_send']){
+        $message = \Swift_Message::newInstance()
+          ->setSubject('[Landing] Feedback')
+          ->setFrom(array('noreply@landing.com'))
+          ->setTo(array($form['mail']->getData()))
+          ->setBody('Test');
+        $app['mailer']->send($message);
+      }
+      if(CONFIG['db_register']){
+        $em->persist($entity);
+        $em->flush($entity);
+      }
       $app['session']->getFlashbag()->add('notice', 'Merci, un mail viens d\'ếtre envoyer');
     }else{
       $app['session']->getFlashBag()->add('notice','Le formulaire comporte des erreurs');

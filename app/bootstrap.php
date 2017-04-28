@@ -25,8 +25,16 @@ $app->register(new Silex\Provider\TwigServiceProvider(), array(
     'twig.path' => __DIR__.'/../views',
 ));
 $app->register(new Silex\Provider\DoctrineServiceProvider());
+$app['db.options'] = array(
+  'driver'   => BDD['driver'], //définit le driver pour la BDD
+  'charset'  => BDD['charset'], //définit le charset pour la BDD
+  'host'     => BDD['host'],  //serveur pour la BDD
+  'port'     => BDD['port'],  //port du serveur
+  'dbname'   => BDD['dbname'],  //nom de la BDD
+  'user'     => BDD['user'], //Utilisateur
+  'password' => BDD['password'], //mot de passe
+);
 $app->register(new DoctrineOrmServiceProvider, array(
-    'orm.proxies_dir' => '/path/to/proxies',
     'orm.em.options' => array(
         'mappings' => array(
             // Using actual filesystem paths
@@ -39,15 +47,17 @@ $app->register(new DoctrineOrmServiceProvider, array(
         ),
     ),
 ));
+
 $app->register(new Silex\Provider\SwiftmailerServiceProvider());
 $app['swiftmailer.options'] = array(
-    'host' => 'smtp.googlemail.com',
-    'port' => '465',
-    'username' => 'rydkeyproduction@gmail.com',
-    'password' => 'azerty90',
-    'encryption' => 'ssl',
-    'auth_mode' => 'login'
+  'host' => MAIL['host'],
+  'port' => MAIL['port'],
+  'username' => MAIL['username'],
+  'password' => MAIL['password'],
+  'encryption' => MAIL['encryption'],
+  'auth_mode' => MAIL['auth_mode']
 );
+
 $app->register(new Silex\Provider\TranslationServiceProvider(), array(
     'translator.domains' => array(),
 ));

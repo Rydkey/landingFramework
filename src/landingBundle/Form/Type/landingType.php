@@ -64,7 +64,7 @@ class landingType extends AbstractType
         $builder->add('entreprise',TextType::class,array('attr'=> array('placeholder'=>'Entreprise'),'label'=> 'Entreprise :'));
       }
       if ($post[FIELD['message']]){
-        $builder->add('message',TextareaType::class,array('attr'=> array('placeholder'=>'Message'),'label'=> 'Message :'));
+        $builder->add('message',TextareaType::class,array('attr'=> array('placeholder'=>'Message'),'label'=> 'Message :','required'=>FALSE));
       }
       if ($post[FIELD['opt_in']]){
         $builder->add('opt_in',CheckboxType::class,array('required'=>false));

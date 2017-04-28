@@ -18,3 +18,4 @@ define('FIELD',$f);
 define('MAIL',$mail_config);
 define('BDD',$db_config);
 define('CONFIG',$config);
+define('BOOL',$f_bool);

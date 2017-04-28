@@ -29,44 +29,41 @@ class landingType extends AbstractType
 
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-      global $app;
-      $sql='SELECT * FROM admin WHERE id=1';
-      $post=$app['db']->fetchAssoc($sql);
-      if($post[FIELD['mail']]){
+      if(BOOL['mail']){
         $builder->add('mail',EmailType::class,array('attr'=>array('placeholder' => 'email'), 'label'=>'Email : '));
       }
-      if($post[FIELD['nom']]){
+      if(BOOL['nom']){
         $builder->add('nom',TextType::class,array('attr'=> array('placeholder'=>'Nom'),'label'=> 'Nom :'));
       }
-      if ($post[FIELD['prenom']]){
+      if (BOOL['prenom']){
         $builder->add('prenom',TextType::class,array('attr'=> array('placeholder'=>'Prénom'),'label'=> 'Prénom :'));
       }
-      if($post[FIELD['numeroAdresse']]){
+      if(BOOL['numeroAdresse']){
         $builder->add('numeroAdresse',NumberType::class,array('attr'=> array('placeholder'=>'Numéro de rue'),'label'=> 'Numéro de voie :'));
       }
-      if($post[FIELD['voieAdresse']]){
+      if(BOOL['voieAdresse']){
         $builder->add('voieAdresse',TextType::class,array('attr'=> array('placeholder'=>'Nom de la voie'),'label'=> 'Nom de la voie :'));
       }
-      if ($post[FIELD['codePostal']]){
+      if (BOOL['codePostal']){
         $builder->add('codePostal',NumberType::class,array('attr'=> array('placeholder'=>'Code Postal'),'label'=> 'Code Postale :','constraints'=>[new Assert\Length(['min'=>5])]));
       }
-      if ($post[FIELD['ville']]){
+      if (BOOL['ville']){
         $builder->add('ville',TextType::class,array('attr'=> array('placeholder'=>'Ville'),'label'=> 'Ville :'));
       }
-      if ($post[FIELD['telephone']]){
+      if (BOOL['telephone']){
         $builder->add('telephone',TextType::class,['attr'=>['placeholder'=>'N°téléphone','label'=>'Numéro de téléphone'],'constraints'=>[
           new Assert\Length(['min'=>10]),
           new Assert\Regex('/^(01|02|03|04|05|06|07|09)/'),
           new Assert\Type('numeric')
         ]]);
       }
-      if ($post[FIELD['entreprise']]){
+      if (BOOL['entreprise']){
         $builder->add('entreprise',TextType::class,array('attr'=> array('placeholder'=>'Entreprise'),'label'=> 'Entreprise :'));
       }
-      if ($post[FIELD['message']]){
+      if (BOOL['message']){
         $builder->add('message',TextareaType::class,array('attr'=> array('placeholder'=>'Message'),'label'=> 'Message :','required'=>FALSE));
       }
-      if ($post[FIELD['opt_in']]){
+      if (BOOL['opt_in']){
         $builder->add('opt_in',CheckboxType::class,array('required'=>false));
       }
       $builder->getForm()

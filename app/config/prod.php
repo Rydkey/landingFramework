@@ -35,6 +35,20 @@ $f=[
   'opt_in'=>'opt_opt_in',
 ];
 
+$f_bool=[
+  'mail'=>true,
+  'nom'=>true,
+  'prenom'=>true,
+  'numeroAdresse'=>true,
+  'voieAdresse'=>true,
+  'codePostal'=>true,
+  'ville'=>true,
+  'telephone'=>true,
+  'entreprise'=>true,
+  'message'=>true,
+  'opt_in'=>true,
+];
+
 $mail_config=[
   'host' => 'smtp.googlemail.com',
   'port' => '465',

@@ -2,15 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3eb60625-b135-414f-be84-1fcb6939c63c" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/admin.sql" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.htaccess" afterPath="$PROJECT_DIR$/.htaccess" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin(1).sql" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Controller.php" afterPath="$PROJECT_DIR$/app/Controller.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/dev.php" afterPath="$PROJECT_DIR$/app/config/dev.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/generate.php" afterPath="$PROJECT_DIR$/generate.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/landingBundle/Entity/Landing.php" afterPath="$PROJECT_DIR$/src/landingBundle/Entity/Landing.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/landingBundle/Form/Type/adminType.php" afterPath="$PROJECT_DIR$/src/landingBundle/Form/Type/adminType.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/landingBundle/Form/Type/landingType.php" afterPath="$PROJECT_DIR$/src/landingBundle/Form/Type/landingType.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -146,8 +139,8 @@
       <file leaf-file-name=".htaccess" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.htaccess">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="22" column="28" lean-forward="false" selection-start-line="22" selection-start-column="28" selection-end-line="22" selection-end-column="28" />
+            <state relative-caret-position="345">
+              <caret line="23" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -601,7 +594,7 @@
       <workItem from="1493277120666" duration="8699000" />
       <workItem from="1493285987279" duration="15015000" />
       <workItem from="1493363789916" duration="13581000" />
-      <workItem from="1493383781880" duration="453000" />
+      <workItem from="1493383781880" duration="531000" />
     </task>
     <task id="LOCAL-00001" summary="update qui sert à rien.">
       <created>1491808028971</created>
@@ -652,11 +645,18 @@
       <option name="project" value="LOCAL" />
       <updated>1493305266756</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Version 3.0 (sécurisation htpasswd du admin)">
+      <created>1493384268754</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1493384268754</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="95485000" />
+    <option name="totallyTimeSpent" value="95563000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -705,7 +705,8 @@
     <MESSAGE value="Permet d'ajouter ou de supprimer des champs" />
     <MESSAGE value="jout de l'export admin" />
     <MESSAGE value="ajout du generate" />
-    <option name="LAST_COMMIT_MESSAGE" value="ajout du generate" />
+    <MESSAGE value="Version 3.0 (sécurisation htpasswd du admin)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Version 3.0 (sécurisation htpasswd du admin)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -887,6 +888,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="54">
           <caret line="19" column="15" lean-forward="false" selection-start-line="19" selection-start-column="15" selection-end-line="19" selection-end-column="15" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1020,8 +1022,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.htaccess">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" column="28" lean-forward="false" selection-start-line="22" selection-start-column="28" selection-end-line="22" selection-end-column="28" />
+        <state relative-caret-position="345">
+          <caret line="23" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
           <folding />
         </state>
       </provider>

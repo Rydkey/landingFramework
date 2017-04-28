@@ -18,8 +18,3 @@ $dir='/public/landingFramework';
 $app->match($dir.'/', function (Request $request) use ($app) {
   return indexController($request,$app);
 })->bind('home');
-
-// Admin page
-$app->match($dir.'/admin', function (Request $request) use ($app) {
-  return adminController($request,$app);
-})->bind('admin');

@@ -1,11 +1,26 @@
 # redirige les URL vers index
-#AuthType Basic
-#AuthName "Authentification requise"
-#AuthUserFile "/media/www-dev/public/landingFramework/.htpasswd"
+
 #Require valid-user
 #AddHandler application/x-httpd-php55 .php
 
 # Do the regex check against the URI here, if match, set the "require_auth" var
+
+SetEnvIf Request_URI ^/public/landingFramework/admin require_auth=true
+
+AuthType Basic
+AuthName "Authentification requise"
+AuthUserFile "/media/www-dev/public/landingFramework/.htpasswd"
+
+# Setup a deny/allow
+Order Deny,Allow
+# Deny from everyone
+Deny from all
+# except if either of these are satisfied
+Satisfy any
+# 1. a valid authenticated user
+Require valid-user
+# or 2. the "require_auth" var is NOT set
+Allow from env=!require_auth
 
 <IfModule mod_rewrite.c>
     Options -MultiViews

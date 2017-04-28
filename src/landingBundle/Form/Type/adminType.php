@@ -27,10 +27,10 @@ class adminType extends AbstractType {
     $sql='SELECT * FROM admin WHERE id=1';
     $post=$app['db']->fetchAssoc($sql);
     foreach (FIELD as $f){
-      if($post['opt_'.$f]){
-        $builder->add('opt_'.$f,CheckboxType::class,array('required'=>false,'label'=>$f,'attr'=>['checked'=>'']));
+      if($post[$f]){
+        $builder->add($f,CheckboxType::class,array('required'=>false,'label'=>$f,'attr'=>['checked'=>'']));
       }else{
-        $builder->add('opt_'.$f,CheckboxType::class,array('required'=>false,'label'=>$f));
+        $builder->add($f,CheckboxType::class,array('required'=>false,'label'=>$f));
       }
     }
     $builder->getForm();

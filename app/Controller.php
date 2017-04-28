@@ -22,7 +22,7 @@ function adminController(Symfony\Component\HttpFoundation\Request $request, Sile
   if($form->isSubmitted()){
     if($form->isValid()){
       foreach (FIELD as $f){
-        $sql='UPDATE admin SET opt_'.$f.'='.(int)$form['opt_'.$f]->getData().' WHERE id=1';
+        $sql='UPDATE admin SET '.$f.'='.(int)$form[$f]->getData().' WHERE id=1';
         $post=$app['db']->executeUpdate($sql);
       }
       $app['session']->getFlashBag()->add('notice','Modification effectué');
@@ -49,7 +49,7 @@ function indexController(Symfony\Component\HttpFoundation\Request $request, Sile
       //            $app['mailer']->send($message);
       $em->persist($entity);
       $em->flush($entity);
-      $app['session']->getFlashbag()->add('notice', 'Merci, un mail viens d\'ếtre envoyer à l\'adresse mail suivante : '.$form['mail']->getData());
+      $app['session']->getFlashbag()->add('notice', 'Merci, un mail viens d\'ếtre envoyer');
     }else{
       $app['session']->getFlashBag()->add('notice','Le formulaire comporte des erreurs');
     }

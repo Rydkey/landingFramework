@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3eb60625-b135-414f-be84-1fcb6939c63c" name="Default" comment="Plus aucun besoin de base de donnée pour les champs">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/README.md" />
+    <list default="true" id="3eb60625-b135-414f-be84-1fcb6939c63c" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -147,8 +146,8 @@
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="195">
-                <caret line="13" column="65" lean-forward="false" selection-start-line="13" selection-start-column="65" selection-end-line="13" selection-end-column="65" />
+              <first_editor relative-caret-position="240">
+                <caret line="16" column="24" lean-forward="true" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="24" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -660,7 +659,7 @@
       <workItem from="1493277120666" duration="8699000" />
       <workItem from="1493285987279" duration="15015000" />
       <workItem from="1493363789916" duration="13581000" />
-      <workItem from="1493383781880" duration="10417000" />
+      <workItem from="1493383781880" duration="10466000" />
     </task>
     <task id="LOCAL-00001" summary="update qui sert à rien.">
       <created>1491808028971</created>
@@ -739,11 +738,18 @@
       <option name="project" value="LOCAL" />
       <updated>1493392934666</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="ajout de README">
+      <created>1493394239429</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1493394239429</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="105449000" />
+    <option name="totallyTimeSpent" value="105498000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -796,7 +802,8 @@
     <MESSAGE value="Ajout export bdd admin" />
     <MESSAGE value="simplification de la modification" />
     <MESSAGE value="Plus aucun besoin de base de donnée pour les champs" />
-    <option name="LAST_COMMIT_MESSAGE" value="Plus aucun besoin de base de donnée pour les champs" />
+    <MESSAGE value="ajout de README" />
+    <option name="LAST_COMMIT_MESSAGE" value="ajout de README" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1144,8 +1151,8 @@
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="195">
-            <caret line="13" column="65" lean-forward="false" selection-start-line="13" selection-start-column="65" selection-end-line="13" selection-end-column="65" />
+          <first_editor relative-caret-position="240">
+            <caret line="16" column="24" lean-forward="true" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="24" />
             <folding />
           </first_editor>
           <second_editor />

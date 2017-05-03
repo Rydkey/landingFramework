@@ -14,8 +14,9 @@ $app['debug'] = true;
 
 //permet de récupéré l'URL de base de l'appliquation, ne pas toucher
 define('BASE_URL', explode('app.php', $_SERVER['SCRIPT_NAME'])[0]);
-define('FIELD',$f);
 define('MAIL',$mail_config);
+define('MAIL_BOOL',$mail_bool);
+define('MAIL_TO',$mail_to);
 define('BDD',$db_config);
 define('CONFIG',$config);
 define('BOOL',$f_bool);

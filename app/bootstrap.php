@@ -10,9 +10,7 @@
 
 use Symfony\Component\Debug\ErrorHandler;
 use Symfony\Component\Debug\ExceptionHandler;
-
 use Dflydev\Provider\DoctrineOrm\DoctrineOrmServiceProvider;
-
 use Silex\Provider\FormServiceProvider;
 
 // Register global error and exception handlers

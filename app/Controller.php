@@ -16,20 +16,41 @@ use landingBundle\Form\Type\landingType;
  */
 
 function indexController(Symfony\Component\HttpFoundation\Request $request, Silex\Application $app){
-  $em = $app['orm.em'];
-  $entity = new Landing();
-  $formBuilder= $app['form.factory']->createBuilder(landingType::class,$entity);
+  if(CONFIG['db_register']){
+    $em = $app['orm.em'];
+    $entity = new Landing();
+    $formBuilder= $app['form.factory']->createBuilder(landingType::class,$entity);
+  }else{
+    $formBuilder= $app['form.factory']->createBuilder(landingType::class,null);
+  }
   $form=$formBuilder->getForm();
   $form->handleRequest($request);
   if($form->isSubmitted()){
     if($form->isValid()){
       if (CONFIG['mail_send']){
-        $message = \Swift_Message::newInstance()
-          ->setSubject('[Landing] Feedback')
-          ->setFrom(array('noreply@landing.com'))
-          ->setTo(array($form['mail']->getData()))
-          ->setBody('Test');
-        $app['mailer']->send($message);
+        if (MAIL_BOOL['form']){
+          $message = \Swift_Message::newInstance()
+            ->setSubject('[Landing] Feedback')
+            ->setFrom(array('noreply@landing.com'))
+            ->setTo([$form['mail']->getData()])
+            ->setBody($app['twig']->render('Mail/mail.html.twig',['items'=>$form->getData()]));
+          $app['mailer']->send($message);
+        }if(MAIL_BOOL['provided']){
+          $message = \Swift_Message::newInstance()
+            ->setSubject('[Landing] Feedback')
+            ->setFrom(array('noreply@landing.com'))
+            ->setTo(MAIL_TO)
+            ->setBody($app['twig']->render('Mail/mail.html.twig',['items'=>$form->getData()]));
+          $app['mailer']->send($message);
+        }if (MAIL_BOOL['form'] && MAIL_BOOL['provided']){
+          $message = \Swift_Message::newInstance()
+            ->setSubject('[Landing] Feedback')
+            ->setFrom(array('noreply@landing.com'))
+            ->setTo(MAIL_TO)
+            ->setTo($form['mail']->getData())
+            ->setBody($app['twig']->render('Mail/mail.html.twig',['items'=>$form->getData()]));
+          $app['mailer']->send($message);
+        }
       }
       if(CONFIG['db_register']){
         $em->persist($entity);

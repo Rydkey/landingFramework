@@ -11,7 +11,8 @@
         <li>1.0 : simple formulaire en silex avec enregistrement et envoie de mail</li>
         <li>2.0 : permet de modifier les champs via <strong>/admin</strong></li>
         <li>3.0 : sécurisation de <strong>/admin</strong></li>
-        <li>4.0 : simplification de la modification du formulaire</strong></li>
+        <li>4.0 : simplification de la modification du formulaire</li>
+        <li>5.0 : generation automatique du formulaire</li>
     </ul>
 <h2>Anglais</h2>
 <p>Project realised during an internship in Maetva : http://www.maetva.com/<p>

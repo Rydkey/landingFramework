@@ -21,32 +21,18 @@ $db_config=[
       'password' => 'remy9097*', //mot de passe
 ];
 
-$f=[
-  'mail'=>'opt_mail',
-  'nom'=>'opt_nom',
-  'prenom'=>'opt_prenom',
-  'numeroAdresse'=>'opt_numeroAdresse',
-  'voieAdresse'=>'opt_voieAdresse',
-  'codePostal'=>'opt_codePostal',
-  'ville'=>'opt_ville',
-  'telephone'=>'opt_telephone',
-  'entreprise'=>'opt_entreprise',
-  'message'=>'opt_message',
-  'opt_in'=>'opt_opt_in',
-];
-
 $f_bool=[
   'mail'=>true,
-  'nom'=>true,
-  'prenom'=>true,
-  'numeroAdresse'=>true,
-  'voieAdresse'=>true,
-  'codePostal'=>true,
-  'ville'=>true,
-  'telephone'=>true,
-  'entreprise'=>true,
-  'message'=>true,
-  'opt_in'=>true,
+  'nom'=>false,
+  'prenom'=>false,
+  'numeroAdresse'=>false,
+  'voieAdresse'=>false,
+  'codePostal'=>false,
+  'ville'=>false,
+  'telephone'=>false,
+  'entreprise'=>false,
+  'message'=>false,
+  'opt_in'=>false,
 ];
 
 $mail_config=[
@@ -57,6 +43,16 @@ $mail_config=[
   'encryption' => 'ssl',
   'auth_mode' => 'login'
 ];
+
+$mail_bool=[
+  'form'=>true,
+  'provided'=>false,
+];
+
+$mail_to=[
+  'r.risser@maetvaplanet.com',
+];
+
 
 $app['orm.proxies_dir'] = __DIR__.'/../cache/doctrine/proxies';
 $app['orm.default_cache'] = 'array';

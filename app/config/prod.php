@@ -14,7 +14,7 @@ $app['db.options'] = array(
     'port'     => '3306',  //port du serveur
     'dbname'   => 'landingFramework',  //nom de la BDD
     'user'     => 'root', //Utilisateur
-    'password' => 'remy9097*', //mot de passe
+    'password' => '', //mot de passe
 );
 
 $app['swiftmailer.options'] = array(
